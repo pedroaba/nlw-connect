@@ -1,6 +1,13 @@
+import { BadgeCheck, Copy, Link, Medal, MousePointerClick } from 'lucide-react'
 import Image from 'next/image'
 
 import DevStageLogo from '@/assets/logo.svg'
+import { IconButton } from '@/components/icon-button'
+import { InputField, InputIcon, InputRoot } from '@/components/input'
+
+import { InviteLinkInput } from './invite-link-input'
+import { Ranking } from './ranking'
+import { Stats } from './stats'
 
 export default function Invite() {
   return (
@@ -33,8 +40,14 @@ export default function Invite() {
               inscrições:
             </p>
           </div>
+
+          <InviteLinkInput inviteLink="http://localhost:3000/invite/120974012n" />
+
+          <Stats />
         </div>
       </div>
+
+      <Ranking />
     </div>
   )
 }
