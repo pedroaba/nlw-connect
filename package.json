@@ -35,11 +35,13 @@
     "eslint-plugin-prettier": "^5.2.3",
     "eslint-plugin-react-hooks": "^5.1.0",
     "eslint-plugin-simple-import-sort": "^12.1.1",
+    "orval": "^7.5.0",
     "typescript": "^5"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
       "@biomejs/biome",
+      "esbuild",
       "sharp"
     ]
   }

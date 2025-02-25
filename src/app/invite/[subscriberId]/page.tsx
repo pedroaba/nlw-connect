@@ -2,14 +2,22 @@ import { BadgeCheck, Copy, Link, Medal, MousePointerClick } from 'lucide-react'
 import Image from 'next/image'
 
 import DevStageLogo from '@/assets/logo.svg'
-import { IconButton } from '@/components/icon-button'
-import { InputField, InputIcon, InputRoot } from '@/components/input'
 
 import { InviteLinkInput } from './invite-link-input'
 import { Ranking } from './ranking'
 import { Stats } from './stats'
 
-export default function Invite() {
+interface InvitePageProps {
+  params: Promise<{
+    subscriberId: string
+  }>
+}
+
+export default async function Invite({ params }: InvitePageProps) {
+  const { subscriberId } = await params
+
+  const inviteLink = `http://localhost:3333/invites/${subscriberId}`
+
   return (
     <div className="min-h-dvh flex items-center justify-between gap-16 flex-col md:flex-row">
       <div className="flex flex-col gap-10 w-full max-w-[550px]">
@@ -41,9 +49,9 @@ export default function Invite() {
             </p>
           </div>
 
-          <InviteLinkInput inviteLink="http://localhost:3000/invite/120974012n" />
+          <InviteLinkInput inviteLink={inviteLink} />
 
-          <Stats />
+          <Stats subscriberId={subscriberId} />
         </div>
       </div>
 
